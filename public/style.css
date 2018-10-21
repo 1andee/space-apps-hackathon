@@ -3,6 +3,7 @@ body {
     background-image: 'space.jpg';
     padding-top: 15px;
     padding-bottom: 25px;
+    height: 750px;
 }
 tr:nth-child(even) {
     background: #CCC;
