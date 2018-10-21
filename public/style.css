@@ -3,6 +3,9 @@ body {
     padding-top: 15px;
     padding-bottom: 25px;
 }
+tr:nth-child(even) {
+    background: #CCC;
+}
 .navbar {
     text-align: right;
     top: 10px;
@@ -86,7 +89,7 @@ canvas:hover {
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 24rem;
+    width: 35rem;
     border-radius: 0.5rem;
 }
 .close-button {

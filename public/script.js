@@ -10,7 +10,13 @@ $(document).ready(function() {
         showModal('Be sure to drink water, right now!');
     })
 
-    $('#iron').click(function(){
+    $(function(){
+        setTimeout(function(){
+          renderActivityQuestion();
+        }, 5000);
+     });
+
+     renderActivityQuestion = () => {
         let activityCheck = `<div>
         <p>Did you undergo any strenuous physical activity or exertion in the past 60 minutes?</p>
         <button id="activity-yes" class="button black">Yes</button>
@@ -18,6 +24,20 @@ $(document).ready(function() {
         </div>
         `
         showModal(activityCheck);
+     }
+
+    $('#notifications').click(function(){
+        $.ajax({
+            type: 'GET',
+            url: 'http://spaceappsto.herokuapp.com/api/notification/all',
+            dataType: 'json',
+            success: ((res) => {
+                renderNotificationModal(res.notifications);
+            }),
+            error: ((xhr, ajaxOptions, thrownError) => {
+                alert(`Something blew up: ${thrownError}`);
+            })
+        });
     })
     
     $('body').on('click', '#activity-yes', function () {
@@ -35,6 +55,23 @@ $(document).ready(function() {
     function showModal(text) {
         $('.modal-text').html(text);
         modal.classList.add("show-modal");
+    }
+
+    function renderNotificationModal(data) {
+        let tableString = `<table style="font-size: 18px;">
+            <tr>
+            <th>Message</th>
+            <th>Read Status</th>
+            <th>Timestamp</th>
+            </tr>`;
+        data.forEach((notification) => {
+            tableString += `<tr>
+            <td>${notification.message}</td>`
+            notification.read ? tableString += `<td></td>` : tableString += `<td style="background-color: red; color: white; text-align: center;">NEW</td>`
+            tableString += `<td>${notification.timestamp}</td></tr>`
+        })
+        tableString += `</table>`;
+        showModal(tableString);
     }
 
     function closeModal(text) {
