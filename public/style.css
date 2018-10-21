@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(160deg,#ffebd6,#f2c7ae,#e5a191,#d67b7e,#c15576,#a33076,#79127a,#370b7f);
+    background: linear-gradient(160deg,#79127a,#370b7f,#260538);
+    background-image: 'space.jpg';
     padding-top: 15px;
     padding-bottom: 25px;
 }
