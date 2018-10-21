@@ -28,14 +28,14 @@
     <script>
         var ctx = document.getElementById("chart1");
         var chart1 = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: <%-JSON.stringify(dataPoints1)%>,
             options: <%-JSON.stringify(dataPoints1.options)%>
         });
 
         var ctx2 = document.getElementById("chart2");
         var chart2 = new Chart(ctx2, {
-            type: 'pie',
+            type: 'line',
             data: <%-JSON.stringify(dataPoints2)%>,
             options: <%-JSON.stringify(dataPoints2.options)%>
         });
@@ -49,7 +49,7 @@
 
         var ctx4 = document.getElementById("chart4");
         var chart4 = new Chart(ctx4, {
-            type: 'radar',
+            type: 'line',
             data: <%-JSON.stringify(dataPoints4)%>,
             options: <%-JSON.stringify(dataPoints4.options)%>
         });
