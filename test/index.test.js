@@ -46,4 +46,21 @@ describe('API Routes', () => {
           });
     });
   });
+
+  describe('GET /api/notification/all', () => {
+    it('it should fetch all notifications', (done) => {
+      chai.request(server)
+          .get('/api/notification/all')
+          .end((err, res) => {
+                res.should.have.status(200);
+                res.should.be.json;
+                res.body.notifications.should.be.a('array');
+                res.body.notifications[0].should.have.property('id');
+                res.body.notifications[0].should.have.property('message');
+                res.body.notifications[0].should.have.property('read');
+                res.body.notifications[0].should.have.property('timestamp');
+            done();
+          });
+    });
+  });
 })

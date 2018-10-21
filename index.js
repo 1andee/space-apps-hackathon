@@ -22,8 +22,10 @@ app.get("/", (req, res) => {
   res.render("index", data);
 });
 
-const api = require('./api/report');
-app.use('/api/report', api(knex));
+const reportApi = require('./api/report');
+const notificationApi = require('./api/notification');
+app.use('/api/report', reportApi(knex));
+app.use('/api/notification', notificationApi(knex));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
