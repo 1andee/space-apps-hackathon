@@ -50,6 +50,9 @@ if (process.env.NODE_ENV !== 'production') {
       migrations: {
         directory: './db/migrations',
         tableName: 'migrations'
+      },
+      seeds: {
+        directory: './db/seeds'
       }
     }
   
