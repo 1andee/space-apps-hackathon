@@ -45,7 +45,7 @@ $(document).ready(function() {
     });
 
     $('body').on('click', '#activity-no', function () {
-        showModal('Low quantity of iron detected. Administering treatment.');
+        showModal('Consistent high blood pressure detected. Administering treatment.');
     });
 
     $('.close-button').click(function(){
