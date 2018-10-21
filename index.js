@@ -28,3 +28,5 @@ app.use('/api/report', api(knex));
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app.listen(8081);

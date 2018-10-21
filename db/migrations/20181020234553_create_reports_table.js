@@ -1,7 +1,6 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('reports', function (table) {
-        table.increments();
-        table.specificType('timestamp', 'bigint').nullable();
+        table.specificType('timestamp', 'bigint').primary();
         table.integer('heartRate').nullable();
         table.integer('heartRateQuality').nullable();
         table.float('coreTemp').nullable();

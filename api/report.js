@@ -6,9 +6,9 @@ module.exports = (knex) => {
 
   reportApi.get('/all', (req, res) => {
     knex('reports')
-      .then((results) => {
+      .then((reports) => {
         return res.status(200).send({
-          results
+          reports
         });
       });
   });
@@ -24,9 +24,9 @@ module.exports = (knex) => {
 
     knex('reports')
       .where('reports.id', report_id)
-      .then((results) => {
+      .then((reports) => {
         return res.status(200).send({
-          results
+          reports
         });
       });
   });

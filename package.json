@@ -7,8 +7,9 @@
     "node": "8.x.x"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
+    "test": "knex migrate:latest && mocha --exit ./test/index.test.js",
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
     "local": "./node_modules/.bin/nodemon --ignore public/",
     "knex": "./node_modules/.bin/knex"
   },
@@ -25,6 +26,9 @@
     "pg": "^7.5.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.4"
   }
 }
